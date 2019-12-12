@@ -13,14 +13,18 @@ test('String', () => {
   expect(() => checkCount('www')).toThrowError('www не является числом');
 });
 
-test('Number,number', () => {
-  expect(() => checkCount(10.35)).toThrowError('10.35 не является числом');
-});
-
 test('Number + string', () => {
-  expect(() => checkCount('10dbbg')).toThrowError('10dbbg не является числом');
+  expect(() => checkCount('e10d')).toThrowError('e10d не является числом');
 });
 
 test('Number + sumbol', () => {
-  expect(() => checkCount('10!')).toThrowError('10! не является числом');
+  expect(() => checkCount('j10!@@@')).toThrowError('j10!@@@ не является числом');
+});
+
+test('8', () => {
+  expect(() => checkCount('0o777')).toThrowError('0o777 не является числом');
+});
+
+test('16', () => {
+  expect(() => checkCount('0xFFFF')).toThrowError('0xFFFF не является числом');
 });
